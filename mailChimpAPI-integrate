@@ -1,0 +1,109 @@
+FUNCTIONS.PHP
+
+wp_register_script( 'customjs', get_template_directory_uri() . '/js/custom.js', array('jquery'),rand(1,999));
+
+$sweatandtoniic = array(
+'siteurl' => site_url(),
+'adminurl' => admin_url(),
+'ajaxurl' => admin_url( 'admin-ajax.php' ),
+'templateurl' => get_template_directory_uri()
+);
+wp_localize_script( 'customjs', 'sweatandtoniic', $sweatandtoniic );
+wp_enqueue_script( 'customjs');
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+/* Mailchimp*/
+add_action("wp_ajax_mailchimp_addsubscriber", "mailchimp_addsubscriber_callbak");
+add_action("wp_ajax_nopriv_mailchimp_addsubscriber", "mailchimp_addsubscriber_callbak");
+function mailchimp_addsubscriber_callbak(){
+extract($_POST);
+$apiKey = get_field('api_key','option');
+$listId = get_field('list_id','option');
+$memberId = md5(strtolower($email));
+$dataCenter = substr($apiKey,strpos($apiKey,'-')+1);
+$url = 'https://' . $dataCenter . '.api.mailchimp.com/3.0/lists/' . $listId . '/members/' . $memberId;
+
+$json = json_encode([
+'email_address' => $email,
+'status' => 'subscribed',
+'merge_fields' => [
+'FNAME' => $firstname,
+'LNAME' => $lastname,
+
+]
+]);
+
+$ch = curl_init($url);
+
+curl_setopt($ch, CURLOPT_USERPWD, 'user:' . $apiKey);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+
+$result = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+print_r($result);
+
+die;
+
+/Mailchimp/
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+
+CUSTOM.JS
+jQuery('#mailchimpsubmit').click(function () {
+var email = jQuery('#es_txt_email_pg').val();
+
+jQuery('#footer-newsletter #es_txt_email_pg').val(email);
+
+console.log(email);
+
+jQuery.ajax({
+    type: 'POST',
+    url: sweatandtoniic.ajaxurl,
+    data: {
+        action: 'mailchimp_addsubscriber',
+        email: jQuery('#email').val(),
+        firstname: jQuery('#firstname').val(),
+        lastname: jQuery('#lastname').val(),
+    },
+
+    success: function (data) {
+
+        var responsearray = JSON.parse(data);
+
+        if (responsearray.status == 'subscribed') {
+
+            jQuery('#firstname').val('').hide();
+            jQuery('#lastname').val('').hide();
+            jQuery('#email').val('').hide();
+
+
+
+
+        } else {
+
+
+        }
+
+        jQuery('#es_txt_email_pg').val('');
+
+    },
+    error: function (MLHttpRequest, textStatus, errorThrown) {
+
+    }
+});
+});

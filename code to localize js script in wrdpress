@@ -1,0 +1,12 @@
+code to localize js script in wrdpress
+
+wp_register_script( 'mainjs', get_template_directory_uri() . '/js/main.js', array('jquery'),rand(1,999));
+
+$sennheiserarray = array(
+    'siteurl'  => site_url(),
+    'adminurl' => admin_url(),
+    'ajaxurl'  => admin_url( 'admin-ajax.php' ),
+    'templateurl' => get_template_directory_uri()
+);
+wp_localize_script( 'mainjs', 'sennheiser', $sennheiserarray );
+wp_enqueue_script( 'mainjs');
