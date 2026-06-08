@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flora Aura - Explore the world's most exquisite and rare flowers. Discover care tips, botanical origins, and immerse yourself in nature's finest details.">
+    <title>Flora Aura | Exquisite Botanical Exhibition</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS Styling -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Dynamic Ambient Backdrop Glow -->
+    <div class="ambient-glow" id="ambientGlow"></div>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-seedling"></i>
+            <span>Flora Aura</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#exhibition" class="active">Exhibition</a>
+            <a href="#care-guide">Care Guide</a>
+            <a href="#about">Our Greenhouse</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="cta-btn" onclick="document.getElementById('care-guide').scrollIntoView({ behavior: 'smooth' })">
+                Botanical Guide
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Exhibition & Slider Section -->
+    <main id="exhibition" class="hero-section">
+        <div class="hero-content">
+            <span class="sub-badge"><i class="fa-solid fa-leaf"></i> Curated Collection</span>
+            <h1 class="hero-title">Nature's Masterpieces</h1>
+            <p class="hero-subtitle">Embark on a sensory journey through our curated selection of rare and exotic blossoms from across the globe.</p>
+        </div>
+
+        <!-- Slider Container -->
+        <div class="slider-container">
+            <!-- Navigation Arrows -->
+            <button class="slide-nav-btn prev-btn" id="prevBtn" aria-label="Previous flower">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slide-nav-btn next-btn" id="nextBtn" aria-label="Next flower">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Card Track -->
+            <div class="slider-track" id="sliderTrack">
+                <!-- Slide 1: Crimson Rose -->
+                <div class="slide-card active" data-index="0" data-color="rgba(190, 24, 74, 0.15)" data-accent="#be184a">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Crimson Rose" class="slide-img">
+                    <div class="slide-overlay">
+                        <h3>Crimson Rose</h3>
+                        <p>Rosa rubiginosa</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Midnight Orchid -->
+                <div class="slide-card" data-index="1" data-color="rgba(147, 51, 234, 0.15)" data-accent="#9333ea">
+                    <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=800&q=80" alt="Midnight Orchid" class="slide-img">
+                    <div class="slide-overlay">
+                        <h3>Midnight Orchid</h3>
+                        <p>Orchidaceae</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Sakura Blossom -->
+                <div class="slide-card" data-index="2" data-color="rgba(244, 114, 182, 0.15)" data-accent="#f472b6">
+                    <img src="https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&w=800&q=80" alt="Sakura Blossom" class="slide-img">
+                    <div class="slide-overlay">
+                        <h3>Sakura Whisper</h3>
+                        <p>Prunus serrulata</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Golden Sunflower -->
+                <div class="slide-card" data-index="3" data-color="rgba(234, 179, 8, 0.15)" data-accent="#eab308">
+                    <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=800&q=80" alt="Golden Sunflower" class="slide-img">
+                    <div class="slide-overlay">
+                        <h3>Golden Sunflower</h3>
+                        <p>Helianthus annuus</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Dusk Lavender -->
+                <div class="slide-card" data-index="4" data-color="rgba(99, 102, 241, 0.15)" data-accent="#6366f1">
+                    <img src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=800&q=80" alt="Dusk Lavender" class="slide-img">
+                    <div class="slide-overlay">
+                        <h3>Dusk Lavender</h3>
+                        <p>Lavandula angustifolia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Info & Specifications Display -->
+        <div class="flower-details-container glass-panel">
+            <div class="details-header">
+                <div>
+                    <span class="detail-rarity" id="flowerRarity">Exotic</span>
+                    <h2 class="detail-name" id="flowerName">Crimson Rose</h2>
+                    <em class="detail-botanical" id="flowerBotanical">Rosa rubiginosa</em>
+                </div>
+                <div class="timer-bar-container">
+                    <div class="timer-progress" id="timerProgress"></div>
+                </div>
+            </div>
+
+            <p class="detail-description" id="flowerDesc">
+                A legendary bloom symbolizing deep romance and unparalleled elegance. Known for its lush layers of velvet-textured crimson petals and an enchanting, timeless fragrance that lingers beautifully in the air.
+            </p>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <i class="fa-solid fa-earth-americas spec-icon"></i>
+                    <div>
+                        <span class="spec-label">Origin</span>
+                        <strong class="spec-value" id="flowerOrigin">Persia & Western Europe</strong>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <i class="fa-solid fa-sun spec-icon"></i>
+                    <div>
+                        <span class="spec-label">Sunlight</span>
+                        <strong class="spec-value" id="flowerSun">Full Sun (6+ hrs)</strong>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <i class="fa-solid fa-droplet spec-icon"></i>
+                    <div>
+                        <span class="spec-label">Watering</span>
+                        <strong class="spec-value" id="flowerWater">Moderate (Once Weekly)</strong>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <i class="fa-solid fa-temperature-half spec-icon"></i>
+                    <div>
+                        <span class="spec-label">Ideal Temp</span>
+                        <strong class="spec-value" id="flowerTemp">15°C - 24°C</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation Indicators / Dots -->
+        <div class="slider-dots" id="sliderDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+        </div>
+    </main>
+
+    <!-- Care Guide Section -->
+    <section id="care-guide" class="care-section">
+        <div class="section-header">
+            <span class="section-badge">Mastering Botany</span>
+            <h2 class="section-title">Nurturing Your Blossoms</h2>
+            <p class="section-subtitle">Botanical health requires understanding the harmony between elements. Follow our foundational care rules.</p>
+        </div>
+
+        <div class="care-grid">
+            <!-- Tip 1 -->
+            <div class="care-card glass-panel">
+                <div class="care-icon-wrapper w-light">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>The Lighting Harmony</h3>
+                <p>Most flowering plants crave bright, indirect sunlight to synthesize energy. Avoid direct noon sunlight which can scorch delicate petals and bleach pigments.</p>
+            </div>
+
+            <!-- Tip 2 -->
+            <div class="care-card glass-panel">
+                <div class="care-icon-wrapper w-water">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                </div>
+                <h3>Hydration Precision</h3>
+                <p>Overwatering is the number one cause of root decay. Water deeply but allow the top two inches of soil to completely dry out before hydrating again.</p>
+            </div>
+
+            <!-- Tip 3 -->
+            <div class="care-card glass-panel">
+                <div class="care-icon-wrapper w-soil">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                </div>
+                <h3>Aerated Nourishment</h3>
+                <p>Invest in well-draining, nutrient-rich soil blends. Mix potting soil with perlite and peat moss to allow roots to breathe and thrive without dampness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-seedling"></i>
+                    <span>Flora Aura</span>
+                </div>
+                <p>Curating and sharing the world's most breathtaking botanical wonders since 2026.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="#exhibition">Exhibitions</a>
+                <a href="#care-guide">Botany Guide</a>
+            </div>
+            <div class="footer-socials">
+                <h4>Join the Circle</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Flora Aura. All rights reserved. Elegant designs inspired by nature.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Claude Code - personal/local files (do NOT commit)
+#.claude/settings.local.json
+#.claude/projects/
+
+# Claude Code - shared files (DO commit these)
+# .claude/CLAUDE.md
+# .claude/settings.json
+# .claude/agents/
+# .claude/commands/
