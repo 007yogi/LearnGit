@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Flora Aura - get in touch for inquiries, feedback, or collaborations.">
-    <title>Contact Us | Flora Aura</title>
+    <meta name="description" content="About Flora Aura - company background and mission.">
+    <title>About Us | Flora Aura</title>
     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,33 +23,28 @@
         </div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="#contact-form">Contact Us</a>
+            <a href="AboutUs.html" class="active">AboutUs</a>
             <a href="../#about">Our Greenhouse</a>
-        <li><a href="AboutUs.html">AboutUs</a></li>
-<li><a href="Faq.html">FAQ</a></li>
+        <li><a href="Faq.html">FAQ</a></li>
 <a href="testimonial.html">Testimonial</a>
 </nav>
     </header>
 
-    <section class="contact-section glass-panel" id="contact-form" style="max-width: 600px; margin: 80px auto; padding: 2rem;">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="section-subtitle">We love hearing from fellow botanists, collaborators, and curious visitors. Fill out the form below and we’ll reply within 2‑3 business days.</p>
-        <form action="#" method="POST" style="display: grid; gap: 1rem;">
-            <label for="name" class="sr-only">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px;">
-
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required style="width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px;">
-
-            <label for="message" class="sr-only">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your message..." required style="width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px;"></textarea>
-
-            <button type="submit" class="cta-btn" style="justify-self: start;">Send Message</button>
-        </form>
+    <section class="about-section glass-panel" style="max-width: 800px; margin: 80px auto; padding: 2rem;">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">Flora Aura was founded in 2026 with a passion for bringing the world's most exquisite and rare flowers to a wider audience. Our mission is to curate, celebrate, and educate about botanical wonders.</p>
+        <h3>What We Do</h3>
+        <ul>
+            <li>Showcase curated collections of rare blossoms.</li>
+            <li>Provide detailed care guides for enthusiasts.</li>
+            <li>Promote sustainable gardening practices.</li>
+        </ul>
+        <h3>Our Vision</h3>
+        <p>We aim to inspire a deeper connection between people and nature by making botanical knowledge accessible and engaging.</p>
     </section>
 
     <!-- Footer (reuse from main site) -->
-    <footer id="about" class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo">
@@ -69,7 +64,6 @@
         </div>
     </footer>
 
-    <!-- Optional script (if you want to handle form submission locally) -->
-    <script src="../js/script.js"></script>
+    <script src="../js/script.js" defer></script>
 </body>
 </html>

@@ -332,6 +332,21 @@ body {
 
 /* --- Glassmorphic Premium Info Board --- */
 .glass-panel {
+    /* existing styles */
+}
+
+/* FAQ page styling – centers content and adds layout */
+.faq-section {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.faq-item {
+    margin: 1.5rem 0;
+}
+
     background: var(--bg-card);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create three testimonials box with text.">
+    <title>Testimonial | Flora Aura</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS Styling -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header (reuse from main site) -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-seedling"></i>
+            <span>Flora Aura</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="AboutUs.html">AboutUs</a>
+            <a href="ContactUs.html">Contact Us</a>
+            <a href="testimonial.html" class="active">Testimonial</a>
+        </nav>
+    </header>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section glass-panel" style="max-width: 900px; margin: 80px auto; padding: 2rem;">
+        <h2 class="section-title">What Our Visitors Say</h2>
+        <p class="section-subtitle">Hear the experiences of fellow botanical enthusiasts.</p>
+        <div class="testimonials-grid" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="testimonial-card glass-panel" style="padding: 1rem;">
+                <p class="testimonial-text">"The curated collection is breathtaking – I felt like I was strolling through a secret garden."</p>
+                <p class="testimonial-author">— Maya L., Plant Lover</p>
+            </div>
+            <div class="testimonial-card glass-panel" style="padding: 1rem;">
+                <p class="testimonial-text">"The care guide helped my rare orchid thrive for the first time!"</p>
+                <p class="testimonial-author">— Alex P., Orchid Enthusiast</p>
+            </div>
+            <div class="testimonial-card glass-panel" style="padding: 1rem;">
+                <p class="testimonial-text">"A wonderful blend of education and beauty – highly recommend to any garden hobbyist."</p>
+                <p class="testimonial-author">— Priya S., Gardener</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (reuse from main site) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-seedling"></i>
+                    <span>Flora Aura</span>
+                </div>
+                <p>Curating and sharing the world's most breathtaking botanical wonders since 2026.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="index.html#exhibition">Exhibitions</a>
+                <a href="index.html#care-guide">Botany Guide</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Flora Aura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js" defer></script>
+</body>
+</html>
